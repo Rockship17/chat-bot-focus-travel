@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Focus Travel</title>
-  <link rel="stylesheet" href="https://unpkg.com/@rockship/chatbot-sdk@1.2.1/dist/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/@rockship/chatbot-sdk@1.2.2/dist/styles.css">
 
   <!-- React Dependencies (required for UMD build) -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -60,7 +60,7 @@
   </div>
 
   <!-- Install SDK -->
-  <script src="https://unpkg.com/@rockship/chatbot-sdk@1.2.1/dist/rockship-chatbot.umd.js"></script>
+  <script src="https://unpkg.com/@rockship/chatbot-sdk@1.2.2/dist/rockship-chatbot.umd.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const chatbot = new RockshipChatbotSDK({
@@ -77,8 +77,14 @@
         assistantName: 'Focus Travel',
         messageTeaser: 'Need help? Chat with us!',
         chatToggleImageUrl: 'https://www.focusvietnam.com/wp-content/uploads/2024/12/logo.png.webp',
-        showUserName: false,
-        togglePosition: { bottom: '50%', right: '1.25rem', top: '50%' }
+        ui: {
+          showName: false,
+          toggleImageUrl: 'https://www.focusvietnam.com/wp-content/uploads/2024/12/logo.png.webp',
+          togglePosition: { bottom: '50%', right: '1.25rem', top: '50%' }
+        },
+        styles: {
+          toggle: "background: white !important; padding: 2px;"
+        }
       });
 
       chatbot.init();
