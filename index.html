@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Focus Travel</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@rockship/chatbot-sdk@latest/dist/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/@rockship/chatbot-sdk@1.2.0/dist/styles.css">
 
   <!-- React Dependencies (required for UMD build) -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -60,14 +60,23 @@
   </div>
 
   <!-- Install SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@rockship/chatbot-sdk@latest/dist/rockship-chatbot.umd.js"></script>
+  <script src="https://unpkg.com/@rockship/chatbot-sdk@1.2.0/dist/rockship-chatbot.umd.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const chatbot = new RockshipChatbotSDK({
         apiBaseUrl: 'https://focus-travel.rockship.xyz/api/v1/focus-travel',
         apiToken: 'mrch_focus_travel_5m4hEAb6q3IKtsoNfl2tpXr_8ofC7nJqSCKHvZ5E_5I=',
-        welcomeMessage: '✈️ Chào mừng đến với Focus Travel! Tôi có thể giúp gì cho bạn hôm nay?',
-        supportAgentName: 'Focus Travel Assistant',
+        welcomeMessages: ['Chào anh/chị! Rất vui được đồng hành cùng anh/chị trong hành trình khám phá vẻ đẹp của Đông Nam Á. Nếu anh/chị có bất kỳ câu hỏi nào về các tour du lịch, dịch vụ hoặc thông tin cần thiết, đừng ngần ngại liên hệ với em nhé!'],
+        quickReplies: [
+          { id: '1', label: 'Focus Travel cung cấp những dịch vụ gì?', message: 'Focus Travel cung cấp những dịch vụ gì?' },
+          { id: '2', label: 'Bạn cung cấp những tour nào?', message: 'Bạn cung cấp những tour nào?' },
+          { id: '3', label: 'Có những tour Đông Nam Á nào?', message: 'Có những tour Đông Nam Á nào?' },
+          { id: '4', label: 'Thông tin các tour Outbound', message: 'Thông tin các tour Outbound' }
+        ],
+        brandLogoUrl: 'https://www.focusvietnam.com/wp-content/uploads/2024/12/logo.png.webp',
+        assistantName: 'Focus Travel',
+        messageTeaser: 'Need help? Chat with us!',
+        chatToggleImageUrl: 'https://www.focusvietnam.com/wp-content/uploads/2024/12/logo.png.webp'
       });
 
       chatbot.init();
